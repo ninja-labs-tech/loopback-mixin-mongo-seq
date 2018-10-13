@@ -1,7 +1,7 @@
 const debug = require('debug')('loopback:mixin:mongo-seq')
 
 module.exports = (app, opts) => {
-  debug(`initializing counter model with options ${JSON.stingify(opts)}`);
+  debug(`initializing counter model with options ${JSON.stringify(opts)}`);
 
   const counterModel = app.loopback.createModel({
     name: opts.counterModelName,
