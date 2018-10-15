@@ -20,7 +20,7 @@ module.exports = (app, opts) => {
     acls: [],
     methods: {},
   });
-  counterModel.createSeq = async ({ name, initialVal = 1 }) => {
+  counterModel.createSeq = async ({ name, initialVal }) => {
     const counterCollection = counterModel.getDataSource().connector.collection(counterModel.modelName);
     const { value: doc } = await counterCollection.findOneAndUpdate({ _id: name }, {
       $setOnInsert: {
@@ -30,9 +30,9 @@ module.exports = (app, opts) => {
         nextVal: initialVal,
       },
     }, {
-      upsert: true,
-      returnOriginal: false,
-    });
+        upsert: true,
+        returnOriginal: false,
+      });
     return doc && doc.nextVal;
   };
 
@@ -43,8 +43,8 @@ module.exports = (app, opts) => {
         nextVal: step,
       },
     }, {
-      returnOriginal: true,
-    });
+        returnOriginal: true,
+      });
     return doc && doc.nextVal;
   };
 
@@ -54,9 +54,9 @@ module.exports = (app, opts) => {
     public: false,
   });
 
-  counterModel.initializeSeq = async (Model) => {
+  counterModel.initializeSeq = async (Model, initialVal) => {
     const highestRecord = await Model.findOne({ order: 'ID DESC', fields: ['ID'] });
-    const initialVal = ((highestRecord && highestRecord[opts.seqPropertyName]) + 1) || 1;
+    const initialVal = highestRecord ? (highestRecord[opts.seqPropertyName] + 1) : initialVal;
     await counterModel.createSeq({ name: Model.modelName, initialVal });
   };
 };
