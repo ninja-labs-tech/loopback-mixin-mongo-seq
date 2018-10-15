@@ -34,7 +34,8 @@ npm install loopback-mixin-mongo-seq
        "counterModelName": "Counter",
        "counterModelDataSource": "MongoDS",
        "seqPropertyName": "ID",
-       "step": 1
+       "step": 1,
+       "initialVal": 1
      }
    }
 ```
