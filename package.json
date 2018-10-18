@@ -1,6 +1,6 @@
 {
   "name": "loopback-mixin-mongo-seq",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "loopback mixin to add support for sequential property",
   "main": "index.js",
   "husky": {
