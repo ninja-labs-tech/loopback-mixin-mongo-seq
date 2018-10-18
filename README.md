@@ -30,9 +30,13 @@ loopbackMixinMongoSeq(app, {
 }
 ```
 4. options
+
     propertyName: property name, defaults to ID.
+
     step: defaults to 1.
+
     initialVal: value to start counter from if the sequence doesn't exist, defaults to the highest record in the target model if not found then 1.
+    
     readOnly: if the value should be protested against changes, defaults
     to true.
 
