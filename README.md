@@ -4,13 +4,13 @@
 
 ### usage ###
 
-1. install via npm.
+* install via npm.
 
 ```shell
 npm install loopback-mixin-mongo-seq
 ```
 
-2. update `server.js` to load mixin.
+* update `server.js` to load mixin.
 
 ```javascript
 const loopbackMixinMongoSeq = require('loopback-mixin-mongo-seq');
@@ -20,7 +20,7 @@ loopbackMixinMongoSeq(app, {
 });
 ```
 
-3. add mixins property to the required model.
+* add mixins property to the required model.
 
 ```json
 "mixins": {
@@ -28,21 +28,26 @@ loopbackMixinMongoSeq(app, {
     "propertyName": "ID",
     "step": 1,
     "initialVal": 1,
-    "readOnly": true
+    "readOnly": true,
+    "definiton": {
+      "index": { "unique": true }
+    }
   }
 }
 ```
 
 ### options ###
 
-  propertyName: property name, defaults to ID.
+_propertyName_: property name, defaults to ID.
 
-  step: defaults to 1.
+_step_: defaults to 1.
 
-  initialVal: value to start counter from if the sequence doesn't exist, defaults to the highest record in the target model if not found then 1.
+_initialVal_: value to start counter from if the sequence doesn't exist, defaults to the highest record in the target model if not found then 1.
 
-  readOnly: if the value should be protested against changes, defaults
-    to true.
+_readOnly_: if the value should be protested against changes, defaults
+to true.
+
+_definition_: property definition ( can be used to add index to property), defaults to {}.
 
 ### DEBUG MODE ###
 
