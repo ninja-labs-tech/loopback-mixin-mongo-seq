@@ -3,11 +3,14 @@
 [loopback v3](https://loopback.io/) mixin to add support for sequential property.
 
 ### usage ###
-1.
-```
+
+1. install via npm.
+
+```shell
 npm install loopback-mixin-mongo-seq
 ```
-2. update `server.js` to load mixin:
+
+2. update `server.js` to load mixin.
 
 ```javascript
 const loopbackMixinMongoSeq = require('loopback-mixin-mongo-seq');
@@ -15,8 +18,8 @@ const loopbackMixinMongoSeq = require('loopback-mixin-mongo-seq');
 loopbackMixinMongoSeq(app, {
   dataSource: 'MongoDS', modelName: 'Counter'
 });
-
 ```
+
 3. add mixins property to the required model.
 
 ```json
@@ -29,15 +32,16 @@ loopbackMixinMongoSeq(app, {
   }
 }
 ```
-4. options
 
-    propertyName: property name, defaults to ID.
+### options ###
 
-    step: defaults to 1.
+  propertyName: property name, defaults to ID.
 
-    initialVal: value to start counter from if the sequence doesn't exist, defaults to the highest record in the target model if not found then 1.
-    
-    readOnly: if the value should be protested against changes, defaults
+  step: defaults to 1.
+
+  initialVal: value to start counter from if the sequence doesn't exist, defaults to the highest record in the target model if not found then 1.
+
+  readOnly: if the value should be protested against changes, defaults
     to true.
 
 ### DEBUG MODE ###
