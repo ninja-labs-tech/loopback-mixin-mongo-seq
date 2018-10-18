@@ -7,42 +7,37 @@
 ```
 npm install loopback-mixin-mongo-seq
 ```
-2. update `mixins` property in `server/model-config.json`:
+2. update `server.js` to load mixin:
 
-```json
-{
-  "_meta": {
-    "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
-      "../common/models",
-      "./models"
-    ],
-    "mixins": [
-      "loopback/common/mixins",
-      "../common/mixins",
-      "../node_modules/loopback-mixin-mongo-seq/lib"
-    ]
-  }
-}
+```javascript
+const loopbackMixinMongoSeq = require('loopback-mixin-mongo-seq');
+
+loopbackMixinMongoSeq(app, {
+  dataSource: 'MongoDS', modelName: 'Counter'
+});
+
 ```
 3. add mixins property to the required model.
 
 ```json
-  "mixins": {
-     "Seq" : {
-       "counterModelName": "Counter",
-       "counterModelDataSource": "MongoDS",
-       "seqPropertyName": "ID",
-       "step": 1,
-       "initialVal": 1
-     }
-   }
+"mixins": {
+  "Seq" : {
+    "propertyName": "ID",
+    "step": 1,
+    "initialVal": 1,
+    "readOnly": true
+  }
+}
 ```
-
+4. options
+    propertyName: property name, defaults to ID.
+    step: defaults to 1.
+    initialVal: value to start counter from if the sequence doesn't exist, defaults to the highest record in the target model if not found then 1.
+    readOnly: if the value should be protested against changes, defaults
+    to true.
 
 ### DEBUG MODE ###
 
 ```
-  DEBUG='loopback:mixin:mongo-seq'
+DEBUG='loopback:mixin:mongo-seq'
 ```

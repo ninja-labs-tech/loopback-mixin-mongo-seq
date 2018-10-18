@@ -3,6 +3,17 @@
   "version": "0.1.0",
   "description": "loopback mixin to add support for sequential property",
   "main": "index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: to be implemented\" && exit 1"
   },
@@ -20,5 +31,12 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^4.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "husky": "^1.0.0-rc.15",
+    "lint-staged": "^7.3.0"
   }
 }
