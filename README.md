@@ -29,7 +29,7 @@ loopbackMixinMongoSeq(app, {
     "step": 1,
     "initialVal": 1,
     "readOnly": true,
-    "definiton": {
+    "definition": {
       "index": { "unique": true }
     }
   }
