@@ -1,0 +1,17 @@
+dist: Xenial
+language: node_js
+node_js:
+  - '8'
+  - '10'
+cache: npm
+install:
+  - npm install
+script:
+  - npm test
+deploy:
+  provider: npm
+  email: mohammedessehemy@gmail.com
+  api_key:
+    secure: pJtUgef0za1pvgceyGwrggxWks5Hd/3/lptRcxbik9x+zUJHcfHak94I+JtGHLRqp3KLZN65cezHMlyBioE18zZTtH3nvp1b+Jpzm2nRuXewbf4ykQOU52VnrvWHSZT5Md3YBnlJ1HStg/k8iS7ibVmtweLpFZi+LLCaGXmZkxqF8P/qpjgZWZDGb9th2hrv3GIQy/sLQ0RK6q9Oyf/zaXhrFY6QGILsoLwPzQNf24nCjZza2L1nZF2R7Dvj7hGdZoxc9wDAMCd41krw7huDeySGYrt9s9UQURV4tYyl/R+Y+mOspI/XtLFn1TQReeU2024UxQbuUh8ha2gbv9YnzCSc9fR66GCimyShV4SdHmAvzrmy4jclT7tIZHWX86pDv8D2ZUiXJn+fPHjX9UAMP+cXv+T7nckH3gLNlWpmcEaaAX30HZgJy6nmeSjSsMPAvzvh19/SJvUrSD3Mbylf5gNUzYQ+OF/iV+ZDjpeg7DDB3tonTyGcQEog/akuyM+iC5spN3enB+zKqFOVAUUJt4S1/q9uOabbO/0FbgIh8r3HwomyCGWXWEfKBsBJ20Wi6UmmuuVAl52lxW5OYQZmSadX4NU88Cpsm0n9sVMgF7lRszUc8n+WtDGV3Swg3l+A3+xRqpUUQB01pNBbk62IxBCDLZbOy6x/qUp7P8HMWnI=
+  on:
+    branch: master
