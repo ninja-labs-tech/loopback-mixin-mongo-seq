@@ -1,4 +1,4 @@
-### MONGO-SEQ ###
+### MONGO-SEQ [![Build Status](https://travis-ci.com/MohammedEssehemy/loopback-mixin-mongo-seq.svg?branch=master)](https://travis-ci.com/MohammedEssehemy/loopback-mixin-mongo-seq)
 
 [loopback v3](https://loopback.io/) mixin to add support for sequential property.
 
